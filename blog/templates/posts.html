@@ -1,0 +1,11 @@
+<h1>Posts</h1>
+
+{% for post in posts %}
+
+    <h2>{{post.title}}</h2>
+    <h3>{{post.date}}</h3>
+    
+    <p>{{post.description}}</p>
+    <img src ="{{posts.image.url}}" alt="{{post.title}}">
+
+{% endfor %}
