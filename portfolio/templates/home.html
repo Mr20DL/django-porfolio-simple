@@ -1,17 +1,40 @@
-{% extends 'layout.html' %}
+{% extends 'layout.html' %} {%  block content %} {% load static %}
 
-{%  block content %}
-<h1>home</h1>
+<header class="row bg-black">
+    <div class="col-md-4">
+        <img src="{% static 'portfolio/saito.png' %}" alt="" class="img-fluid"/>
+    </div>
 
-{% for project in projects%}
+    <div class="col-md-8 my-auto">
+        <h1>I am <strong>Carlos Montenegro</strong></h1>
+        <h3>I am a Frontend Developer</h3>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Similique magni amet dignissimos. Adipisci rem ipsa repudiandae, provident, beatae, molestias dignissimos ipsum esse velit error nemo perspiciatis. Numquam soluta sunt at accusamus vitae minus voluptate unde, nobis ipsam. Corrupti, necessitatibus sequi, consectetur aliquid libero, culpa nam inventore quasi nostrum illo sed?</p>
+        <a href="{% static 'portfolio/PlanDeEstudios.pdf' %}" class="btn btn-primary btn-lg rounded-0 my-3">Download CV</a>
+    </div>
+</header>
 
-<h2>{{project.title}}</h2>
-<p>{{project.description}}</p>
-<img src="{{project.image.url}}" alt="{{project.tilte}}" />
+<div class="row my-4 text-center">
 
-    {% if project.url %}
-    <a href="{{project.url}}">{{project.url}}</a>
-    {% endif %}
+    <h3>My Projects</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, itaque!</p>
+    
+    {% for project in projects %}
+
+<div class="col-md-4 p-4">
+    <div class="card bg-black card-project">
+        <img src="{{project.image.url}}" alt="{{project.tilte}}" class="card-img-top"/>
+        <div class="card-body">
+        <h2>{{project.title}}</h2>
+        <p>{{project.description}}</p>
+
+        {% if project.url %}
+        <a href="{{project.url}}" class="btn btn-light rounded-0 btn-sm" target="_blank">{{project.url}}</a>
+
+        {% endif %}
+        </div>
+    </div>
+</div>
 {% endfor %}
 
 {% endblock %}
+</div>
