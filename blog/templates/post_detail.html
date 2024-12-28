@@ -1,11 +1,15 @@
 {% extends 'layout.html' %}
 {% block content %}
-<h1>Post</h1>
 
-<h2>{{post.title}}</h2>
-<h3>{{post.date}}</h3>
+<div class="text-center">
+    <h2>{{post.title}}</h2>
+<h3 class="my-2 h5 text-muted">{{post.date|date:'F jS Y'|upper}}</h3>
 
-<p>{{post.description|safe}}</p>
-<img src ="{{posts.image.url}}" alt="{{post.title}}" />
+<img src ="{{post.image.url}}" alt="{{post.title}}" class="img-fluid"/>
+<div class="my-4">
+    <p>{{post.description|safe}}</p>
+</div>
+</div>
+
 
 {% endblock %}
